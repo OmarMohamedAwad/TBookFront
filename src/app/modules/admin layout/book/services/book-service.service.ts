@@ -10,7 +10,7 @@ import {Book} from '../models/book';
 export class BookServiceService {
 
   //properties
-  readonly BASE_URL: string = "http://localhost:3000/book";
+  readonly BASE_URL: string = "https://tbookback.herokuapp.com/book";
   accessToken = sessionStorage.getItem('accessToken');
 
   //constructor

@@ -9,7 +9,7 @@ export class AdminLoginService {
 
   constructor(private adminClient: HttpClient) { }
 
-  readonly baseURL: string = "http://localhost:3000/access";
+  readonly baseURL: string = "https://tbookback.herokuapp.com/access";
   postAdmin(admin:{adminName:string, adminPassword:string})
   {
     return this.adminClient.post(`${this.baseURL}/admin`,admin)

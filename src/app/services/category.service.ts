@@ -7,7 +7,7 @@ import {Category} from '../modules/admin layout/category/models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  readonly baseUrl: string = 'http://localhost:3000/category';
+  readonly baseUrl: string = 'https://tbookback.herokuapp.com/category';
   private _categoryIdSource = new Subject<String>();
   categoryID$ = this._categoryIdSource.asObservable();
   accessToken = sessionStorage.getItem('accessToken');
