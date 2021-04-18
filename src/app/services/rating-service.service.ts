@@ -6,10 +6,15 @@ import {HttpClient} from '@angular/common/http';
 })
 export class RatingServiceService {
   constructor(private client:HttpClient) { }
-  readonly BASE_URL: string = "https://tbookback.herokuapp.com/rating";
+  readonly BASE_URL: string = "http://localhost:3000/rating";
   
   store(rating_det: { rate:number, rater:string, book:string}){
     console.log(rating_det);
     return this.client.post(this.BASE_URL,rating_det);
   }
+  /*
+  update(userId:any,bookId:any){
+    return this.client.patch(`${this.BASE_URL}/`)
+  }
+  */
 }

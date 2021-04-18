@@ -9,7 +9,7 @@ export class SettingsService {
   constructor(private settingClient: HttpClient) {
   }
 
-  readonly baseURL: string = 'https://tbookback.herokuapp.com/settings';
+  readonly baseURL: string = 'http://localhost:3000/settings';
   accessToken = sessionStorage.getItem('accessToken');
 
   getSettings() {

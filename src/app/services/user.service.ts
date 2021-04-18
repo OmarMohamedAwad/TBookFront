@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UserService {
 
-  readonly baseURL: string = 'https://tbookback.herokuapp.com/users';
+  readonly baseURL: string = 'http://localhost:3000/users';
   accessToken = sessionStorage.getItem('accessToken');
 
   constructor(private userClient: HttpClient) { }
