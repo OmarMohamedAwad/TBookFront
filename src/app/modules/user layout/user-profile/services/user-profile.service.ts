@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserProfileService {
 
-  readonly baseURL: string = "https://tbookback.herokuapp.com/users";
-  readonly rateURL: string = "https://tbookback.herokuapp.com/rating";
+  readonly baseURL: string = "http://localhost:3000/users";
+  readonly rateURL: string = "http://localhost:3000/rating";
 
   constructor(private userProfileClient: HttpClient) { }
 

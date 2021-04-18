@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
 
-  readonly baseURL: string = "https://tbookback.herokuapp.com/category";
+  readonly baseURL: string = "http://localhost:3000/category";
 
   constructor(private categoryClient: HttpClient) { }
 
