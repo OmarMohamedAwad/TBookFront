@@ -8,7 +8,7 @@ import {User} from '../models/user';
 })
 export class UserAccessServiceService {
 
-  readonly BASE_URL: string = "http://localhost:3000/access";
+  readonly BASE_URL: string = "https://tbookback.herokuapp.com/access";
 
   constructor(private client:HttpClient) { }
 
@@ -26,6 +26,6 @@ export class UserAccessServiceService {
   }
 
   isLoggedIn(){
-    return !!localStorage.getItem('TOKEN');
+    return !!localStorage.getItem('TOKEN') && sessionStorage.getItem('role')=="user";
   }
 }

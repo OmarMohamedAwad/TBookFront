@@ -9,7 +9,7 @@ export class AdminLoginService {
 
   constructor(private adminClient: HttpClient) { }
 
-  readonly baseURL: string = "http://localhost:3000/access";
+  readonly baseURL: string = "https://tbookback.herokuapp.com/access";
   postAdmin(admin:{adminName:string, adminPassword:string})
   {
     return this.adminClient.post(`${this.baseURL}/admin`,admin)
@@ -20,6 +20,7 @@ export class AdminLoginService {
     return this.adminClient.post(`${this.baseURL}/adminLogout`,token)
   }
   isLoggedIn(){
-    return !!sessionStorage.getItem('accessToken');
+
+    return !!sessionStorage.getItem('accessToken')&& sessionStorage.getItem('role')=="admin";
   }
 }

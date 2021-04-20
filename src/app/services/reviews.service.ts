@@ -10,7 +10,7 @@ export class ReviewsService {
   constructor(private client:HttpClient) { }
   accessToken = localStorage.getItem('TOKEN');
 
-  readonly BASE_URL: string = "http://localhost:3000/review";
+  readonly BASE_URL: string = "https://tbookback.herokuapp.com/review";
 
   index(){
     return this.client.get(this.BASE_URL,{observe:"response"});
