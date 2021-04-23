@@ -59,16 +59,20 @@ export class AdminLoginComponent implements OnInit {
     .subscribe((data) => {
       //save tokens in session storage to use it for every next request
       this.tokens = data;
-      try {
-        if (this.tokens.token.accessToken != undefined) {
+      console.log(data);
+      
+      // try {
+        if (this.tokens.token && this.tokens.token.accessToken) {
           sessionStorage.setItem('accessToken', this.tokens.token.accessToken);
           sessionStorage.setItem('refreshToken', this.tokens.token.refreshToken);
           sessionStorage.setItem('role','admin');
           this.enterSite();
+        }else {
+          this.userPassStatus = true;
         }
-      } catch {
-        this.userPassStatus = true;
-      }
+      // } catch {
+      //   this.userPassStatus = true;
+      // }
       //
     }, (err) => {
           Swal.fire({
