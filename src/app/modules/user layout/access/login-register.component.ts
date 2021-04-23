@@ -135,11 +135,15 @@ export class LoginRegisterComponent implements OnInit, AfterViewInit {
   });
 
   register() {
+    console.log("user name before"+this.user.userName);
+    console.log("user name form"+this.registerForm.controls.userName.value);
+
     this.user.userName = this.registerForm.controls.userName.value;
     this.user.password = this.registerForm.controls.password.value;
     this.user.firstName = this.registerForm.controls.fName.value;
     this.user.lastName = this.registerForm.controls.lName.value;
     this.user.email = this.registerForm.controls.email.value;
+    console.log("user name after"+this.user.userName);
 
     if (!this.registerForm.invalid && this.user.password == this.registerForm.controls.confirmPassword.value) {
       this.subscriber = this.userService.register(this.user)
@@ -147,6 +151,7 @@ export class LoginRegisterComponent implements OnInit, AfterViewInit {
           this.userAccessToken = response.accessToken;
           this.userRefreshToken = response.refreshToken;
           this.user = response.user;
+          console.log("user after response"+this.user);
           console.log(response);
           try {
             if (this.userAccessToken != undefined) {
