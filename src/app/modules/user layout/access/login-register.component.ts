@@ -169,6 +169,7 @@ export class LoginRegisterComponent implements OnInit, AfterViewInit {
   }
 
   setSessionData(access: string, refresh: string, user: User) {
+    console.log(user);
     localStorage.setItem('TOKEN', access);
     localStorage.setItem('refreshToken', refresh);
     localStorage.setItem('userName', user.userName);
@@ -176,6 +177,8 @@ export class LoginRegisterComponent implements OnInit, AfterViewInit {
     sessionStorage.setItem('role','user');
   }
   setLocalStorageData(access: string, refresh: string, user: User) {
+    console.log(user);
+    
     sessionStorage.setItem('accessToken', access);
     sessionStorage.setItem('refreshToken', refresh);
     sessionStorage.setItem('userName', user.userName);

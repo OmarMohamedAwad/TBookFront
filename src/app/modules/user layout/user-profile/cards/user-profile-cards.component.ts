@@ -64,6 +64,7 @@ export class UserProfileCardsComponent implements OnInit {
             this.getPage(this.currentBooksType, this.currentPage);
           },
           (err) => {
+            this.loading = true
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
@@ -77,6 +78,7 @@ export class UserProfileCardsComponent implements OnInit {
             this.getPage(this.currentBooksType, this.currentPage);
           },
           (err) => {
+            this.loading = true
             Swal.fire({
               icon: 'error',
               title: 'Oops...',

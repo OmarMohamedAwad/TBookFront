@@ -61,18 +61,16 @@ export class AdminLoginComponent implements OnInit {
       this.tokens = data;
       console.log(data);
       
-      // try {
-        if (this.tokens.token && this.tokens.token.accessToken) {
+      try {
+        if (this.tokens.token.accessToken != undefined) {
           sessionStorage.setItem('accessToken', this.tokens.token.accessToken);
           sessionStorage.setItem('refreshToken', this.tokens.token.refreshToken);
           sessionStorage.setItem('role','admin');
           this.enterSite();
-        }else {
-          this.userPassStatus = true;
         }
-      // } catch {
-      //   this.userPassStatus = true;
-      // }
+      } catch {
+        this.userPassStatus = true;
+      }
       //
     }, (err) => {
           Swal.fire({
