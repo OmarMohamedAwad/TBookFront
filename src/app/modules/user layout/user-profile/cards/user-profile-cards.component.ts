@@ -133,6 +133,7 @@ export class UserProfileCardsComponent implements OnInit {
           this.calculatePagination();
         },
         (err) => {
+          this.loading = true
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
