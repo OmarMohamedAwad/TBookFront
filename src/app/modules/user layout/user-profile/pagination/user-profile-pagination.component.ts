@@ -13,7 +13,6 @@ export class UserProfilePaginationComponent implements OnInit {
   currentPage:number = 1;
 
   getPagination(paginationObj:{paginationPages:number[] , currentPage:number}){
-    console.log(paginationObj)
     this.paginationPages = paginationObj.paginationPages;
     this.currentPage = paginationObj.currentPage;
   }

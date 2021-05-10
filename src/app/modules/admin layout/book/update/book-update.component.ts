@@ -48,11 +48,11 @@ export class BookUpdateComponent implements OnInit, OnChanges {
 
   //get book data with validation tests
   bookForm = new FormGroup({
-    name: new FormControl("",[Validators.min(2),Validators.maxLength(50),Validators.pattern('[a-zA-Z0-9 ]*')]),
-    description: new FormControl("",[Validators.min(10),Validators.max(250),Validators.pattern('[0-9a-zA-Z,-_. ]*')]),
+    name: new FormControl("",[Validators.min(2),Validators.maxLength(50)]),
+    description: new FormControl("",[Validators.min(10),Validators.max(250)]),
     author: new FormControl("",[]),
     category: new FormControl("",[]),
-    image: new FormControl('' , [ Validators.pattern('[a-zA-Z0-9]*')])
+    image: new FormControl('' , [ ])
   })
 
 

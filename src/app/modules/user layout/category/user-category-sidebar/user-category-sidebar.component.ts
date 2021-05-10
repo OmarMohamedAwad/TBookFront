@@ -19,14 +19,16 @@ export class UserCategorySidebarComponent implements OnInit {
   }
 
   selectCategory(event: Event, category: string): void {
-    if (this.lastActivelink) {
-      this.selectCategoryEmitter.emit(category);
-    } else {
+    
+    if (!this.lastActivelink) {
       this.lastActivelink = document.getElementsByClassName('mylink')[0];
-    }
+    } 
+    this.selectCategoryEmitter.emit(category);
+
     if (this.lastActivelink) {
       this.lastActivelink.setAttribute('style', 'font-weight: 500; font-size: 1.0em;');
     }
+    
     this.lastActivelink = event.target;
     this.lastActivelink.setAttribute('style', 'font-weight: 900; font-size: 1.05em;');
   }

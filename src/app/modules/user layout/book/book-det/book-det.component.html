@@ -75,7 +75,7 @@
 
     <form action="Post">
         <img class="rev_img" [src]="user_img">
-        <textarea [value]="text" class="my_review review_body border-danger" rows="4"
+        <textarea [value]="text" class="my_review review_body border-danger p-2" rows="4"
             placeholder="Write your review about this book." required minlength="10" maxlength="300"
             #reviewArea></textarea>
         <button type="submit" class="btn btn-danger my_review_submit" (click)="publishClicked($event)">Publish</button>

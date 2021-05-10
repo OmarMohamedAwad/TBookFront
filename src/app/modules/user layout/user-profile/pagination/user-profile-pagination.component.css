@@ -1,4 +1,12 @@
 /*Pagination Section*/
+.pagination-section .container {
+  padding-left: 10%;
+}
+
+nav {
+  margin-left: 10% !important;
+}
+
 .pagination{
     margin: auto;
     justify-content: center;

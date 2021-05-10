@@ -13,7 +13,6 @@ export class UserCategoryHeaderComponent implements OnInit {
   }
 
   searchBook(event:any){
-    console.log(event.target.value);
     this.searchEmitter.emit(event.target.value);  
   }
   futureWork(){

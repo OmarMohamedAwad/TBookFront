@@ -38,7 +38,7 @@ export class BookDetComponent implements OnInit, AfterViewInit {
   selected: any = 'option2';
   userId: string = '';
   bookId: string = '';
-  user_img = 'assets/user/author/author-1.jpg';
+  user_img = 'https://image.flaticon.com/icons/png/128/3135/3135789.png';
   loading = false;
   favsNum: number = 100;
   userRate = -1;
@@ -96,6 +96,8 @@ export class BookDetComponent implements OnInit, AfterViewInit {
     this.subscriber = this.bookService.show(this.myActivatedRoute.snapshot.params.id)
       .subscribe((response: any) => {
           this.book = response.body;
+          console.log(response.body);
+          
           this.reviews = this.book.bookReviews;
           this.ratings = this.book.bookRatings;
           this.ratesNum = this.book.bookRatings.length;
@@ -123,7 +125,6 @@ export class BookDetComponent implements OnInit, AfterViewInit {
   }
 
   setRate(bookRate: any) {
-    console.log('here');
     if (this.userId) {
       if (!this.rated_before) {
         this.rateSubscriber = this.ratingService.store({

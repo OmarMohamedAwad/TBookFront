@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSubscribeComponent implements OnInit {
 
-  constructor() { }
+  userIsLoggedIn: any;
+  constructor() {
+    this.userIsLoggedIn = sessionStorage.getItem('accessToken');
+  }
 
   ngOnInit(): void {
   }

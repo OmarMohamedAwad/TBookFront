@@ -36,14 +36,14 @@ export class StoreComponent implements OnInit {
   myForm = new FormGroup({
 
     fName:new FormControl('' , [Validators.required,Validators.maxLength(50),Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]*')]),
+      Validators.pattern('[a-zA-Z.-_, ]*')]),
 
     lName:new FormControl('' , [Validators.required,Validators.maxLength(50),Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]*')]),
+      Validators.pattern('[a-zA-Z.-_, ]*')]),
 
     dob:new FormControl('' , [Validators.required]),
 
-    image: new FormControl('' , [(Validators.pattern('[a-zA-Z0-9]*'))])
+    image: new FormControl('', [Validators.required])
 
   })
 

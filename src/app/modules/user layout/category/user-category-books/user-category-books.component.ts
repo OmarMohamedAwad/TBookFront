@@ -22,13 +22,13 @@ export class UserCategoryBooksComponent implements OnInit {
   constructor(private categoryService: CategoryService) {
   }
 
-  getDefaultCategory(category: string) {
+  getDefaultCategory(category: string) {    
     this.loading = false;
     this.currentCategory = category;
     this.getPage(this.currentCategory, this.currentPage);
   }
 
-  selectCategory(name: string) {
+  selectCategory(name: string) {    
     this.loading = false;
     this.currentCategory = name;
     this.currentPage = 1;
@@ -61,7 +61,6 @@ export class UserCategoryBooksComponent implements OnInit {
     this.row1 = [];
     this.subscriber = this.categoryService.getCategoryPage(category, page, book)
       .subscribe((response: any) => {
-          console.log(response);
           this.loading = true;
           this.maxPages = Math.ceil(response.body.bookNumbers / 8);
           let books = response.body.pagebooks;

@@ -40,8 +40,8 @@ export class BookStoreComponent implements OnInit {
 
   //get book data with validation tests
   bookForm = new FormGroup({
-    name: new FormControl("",[Validators.required , Validators.min(2) , Validators.maxLength(50) , Validators.pattern('[a-zA-Z0-9 ]*')]),
-    description: new FormControl("",[Validators.required , Validators.min(10) , Validators.max(250) , Validators.pattern('[0-9a-zA-Z,-_. ]*')]),
+    name: new FormControl("",[Validators.required , Validators.min(2) , Validators.maxLength(50)]),
+    description: new FormControl("",[Validators.required , Validators.min(10) , Validators.max(250)]),
     author: new FormControl("",[Validators.required]),
     category: new FormControl("",[Validators.required]),
     image: new FormControl('' , [Validators.required])

@@ -100,6 +100,8 @@ export class UserProfileCardsComponent implements OnInit {
     } else if (type != 'back' && type != 'next') {
       this.currentPage = type;
       this.getPage(this.currentBooksType, this.currentPage);
+    }else {
+      this.loading = true
     }
   }
 
@@ -111,7 +113,7 @@ export class UserProfileCardsComponent implements OnInit {
     this.bookOverallRate = [];
     this.bookUserType = [];
     this.bookIds = [];
-
+    
     this.myRatingIds = [];
     this.subscriber = this.userProfileService.getUserProfilePage(this.userId, booktype, page, book)
       .subscribe((response: any) => {

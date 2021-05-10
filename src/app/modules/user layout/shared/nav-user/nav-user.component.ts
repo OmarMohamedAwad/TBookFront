@@ -36,8 +36,6 @@ export class NavUserComponent implements OnInit {
   }
 
   userLogout() {
-    console.log('out');
-
     this.refreshToken = sessionStorage.getItem('refreshToken');
 
     this.service.logoutUser({refreshToken: this.refreshToken})

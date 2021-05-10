@@ -65,15 +65,15 @@ export class UpdateComponent implements OnInit, OnChanges {
   //get author data from user using form and make validation test with specific requirement
   myForm = new FormGroup({
 
-    fName: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]*')]),
+    fName: new FormControl('', [Validators.maxLength(50), Validators.minLength(2),
+      Validators.pattern('[a-zA-Z.-_, ]*')]),
 
     lName: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]*')]),
+      Validators.pattern('[a-zA-Z.-_, ]*')]),
 
     dob: new FormControl('', [Validators.required]),
 
-    image: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')])
+    image: new FormControl('', [Validators.required])
   });
 
   //navigate to author page
@@ -84,12 +84,13 @@ export class UpdateComponent implements OnInit, OnChanges {
   //send author data to backend
   submitForm() {
     //get updated information about the author
-    this.author.firstName = this.myForm.controls.fName.value;
-    this.author.lastName = this.myForm.controls.lName.value;
-    this.author.birthDay = this.myForm.controls.dob.value;
-    this.author.image = this.myForm.controls.image.value;
+    this.author.firstName = this.myForm.controls.fName.value ? this.myForm.controls.fName.value : this.author.firstName;
+    this.author.lastName = this.myForm.controls.lName.value ? this.myForm.controls.lName.value : this.author.lastName;
+    this.author.birthDay = this.myForm.controls.dob.value ? this.myForm.controls.dob.value : this.author.birthDay;
+    this.author.image = this.myForm.controls.image.value ? this.myForm.controls.image.value : this.author.image;
+    
     //check on the data is valid or invalid
-    // if (this.getDOBStatus() && this.getFNameStatus() && this.getLNameStatus() && this.getImageStatus()) {
+    if (this.getDOBStatus() && this.getFNameStatus() && this.getLNameStatus() && this.getImageStatus()) {
       //send updated data to backend
       this.myService.updateAuthor(this.author.id, this.author)
         .subscribe((data:any) => {
@@ -103,16 +104,16 @@ export class UpdateComponent implements OnInit, OnChanges {
             footer: ''
           });
         })
-    // }else {
-    //   this.incorrectData = true;
-    //   //invalidation data for the new book
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Oops...',
-    //     text: 'Invalid data !',
-    //     footer: ''
-    //   });
-    // }
+    }else {
+      this.incorrectData = true;
+      //invalidation data for the new book
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Invalid data !',
+        footer: ''
+      });
+    }
   }
 
   updated() {

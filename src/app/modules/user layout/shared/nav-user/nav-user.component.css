@@ -124,7 +124,7 @@ nav.navbar-default .navbar-nav li a.active:hover {
 
 @media (max-width: 991px) {
     .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         margin-top: 67px;
         align-items: left;
     }

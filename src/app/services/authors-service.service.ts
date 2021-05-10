@@ -10,7 +10,7 @@ export class AuthorsServiceService {
   private _authorIdSource = new Subject<String>();
   authorID$ = this._authorIdSource.asObservable();
   constructor(private authorClient: HttpClient) { }
-  readonly baseURL: string = "https://tbookback.herokuapp.com/author";
+  readonly baseURL: string = "http://localhost:3000/author";
   accessToken = sessionStorage.getItem('accessToken');
 
   sendID(id:String){
