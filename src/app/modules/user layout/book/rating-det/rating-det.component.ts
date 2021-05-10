@@ -17,8 +17,9 @@ export class RatingDetComponent implements OnInit, OnChanges {
   constructor(){}
 
   ngOnChanges(changes: SimpleChanges): void {
-    for(let i=0;i<this.ratingsArr.length;i++)
-      this.ratingFreq[this.ratingsArr[i].rate-1]++;
+    if (this.ratingsArr)
+      for(let i=0;i<this.ratingsArr.length;i++)
+        this.ratingFreq[this.ratingsArr[i].rate-1]++;
     for(let i=0;i<5;i++)
       this.chartData[i]=Math.ceil((this.ratingFreq[i]*100)/this.ratingsArr.length)
     this.setFill();
